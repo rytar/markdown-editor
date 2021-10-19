@@ -21,7 +21,7 @@ const CodeBlockTitle = styled.div`
 
 const CodeBlock: CodeComponent = ({ inline, className, children }) => {
     if (inline) {
-        return <code className={className}>{children}</code>;
+        return <code className={className} style={{ background: "#F5F7FF", padding: "0.2em" }}>{children}</code>;
     }
     const match = /language-(\w+)(:.+)?/.exec(className || '');
     const lang = match && match[1] ? match[1] : '';
