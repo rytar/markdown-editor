@@ -8,11 +8,10 @@ import "ace-builds/src-noconflict/ext-language_tools"
 
 type PropsType = {
     text: string,
-    onChange: (t: string) => void,
-    setCursor: (c: number) => void
+    onChange: (t: string) => void
 };
 
-const Editor: React.FC<PropsType> = ({ text, onChange, setCursor }) => {
+const Editor: React.FC<PropsType> = ({ text, onChange }) => {
     return (
         <AceEditor
             mode="markdown"
@@ -25,10 +24,6 @@ const Editor: React.FC<PropsType> = ({ text, onChange, setCursor }) => {
                 enableBasicAutocompletion: true,
                 enableLiveAutocompletion: true,
                 enableSnippets: true
-            }}
-            onCursorChange={(select: Ace.Selection) => {
-                const cursor = select.getCursor();
-                setCursor(cursor.column);
             }}
         />
     );
